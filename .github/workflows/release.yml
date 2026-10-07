@@ -42,6 +42,11 @@ jobs:
         shell: bash
         run: |
           TAG="${GITHUB_REF_NAME}"
+          VERSION="$(node -p "require('./package.json').version")"
+          if [ "v${VERSION}" != "${TAG}" ]; then
+            echo "标签 ${TAG} 与 package.json 版本 ${VERSION} 不一致：产物是按 package.json 命名的，先 bump 版本再打 tag" >&2
+            exit 1
+          fi
           PREV=$(git tag --list 'v*' --sort=-v:refname | grep -v "^${TAG}$" | head -n 1 || true)
           {
             echo "## 下载说明"
@@ -71,14 +76,15 @@ jobs:
           GH_TOKEN: ${{ github.token }}
         run: |
           TAG="${GITHUB_REF_NAME}"
+          VERSION="$(node -p "require('./package.json').version")"
           gh release create "$TAG" \
             --draft \
-            --title "MoucLauncher ${TAG#v}" \
+            --title "MoucLauncher ${VERSION}" \
             --notes-file release-notes.md
           gh release upload "$TAG" \
-            release/"MoucLauncher-${TAG#v}-Setup-x64.exe" \
-            release/"MoucLauncher-${TAG#v}-portable-x64.exe" \
-            release/"MoucLauncher-${TAG#v}-windows-x64.zip" \
+            "release/MoucLauncher-${VERSION}-Setup-x64.exe" \
+            "release/MoucLauncher-${VERSION}-portable-x64.exe" \
+            "release/MoucLauncher-${VERSION}-windows-x64.zip" \
             release/SHA256SUMS.txt \
             --clobber
           gh release edit "$TAG" --draft=false
