@@ -397,8 +397,10 @@ describe('relay client', () => {
     relay.sockets[0]!.fire('close', { code: 1006 })
     expect(client.status().message).toContain('重连')
     await waitFor('the second connection to register', () => relay.sockets.length === 2)
-    await waitFor('the re-registration to complete', () => client.status().state === 'hosting')
-    expect(relay.sockets[1]!.controls('host')).toHaveLength(1)
+    // `state` stays 'hosting' across the drop (only the message changes), so waiting on
+    // it would return immediately and race the 25ms reconnect timer. Wait for the frame.
+    await waitFor('the re-registration to complete', () => relay.sockets[1]!.controls('host').length === 1)
+    expect(client.status().state).toBe('hosting')
     expect(client.status().room).toBe('ROOM8')
 
     relay.sockets[1]!.fire('close', { code: 1006 })

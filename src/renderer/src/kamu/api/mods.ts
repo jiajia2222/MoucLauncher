@@ -18,6 +18,7 @@ import { EVENTS, type ModInstallRequest } from '@shared/ipc'
 import type {
   AppErrorPayload,
   DownloadJob,
+  DownloadKind,
   DownloadProgress,
   InstalledMod,
   InstanceSummary,
@@ -37,15 +38,15 @@ import { ApiError, api, call, maybe, plain } from './core'
 
 /** Upstream `kindTabs`; our `ProjectKind` has no 数据包 but does have 世界存档. */
 export const KIND_TABS: Array<{ value: ProjectKind; label: string }> = [
-  { value: 'mod', label: 'Mod' },
-  { value: 'modpack', label: '整合包' },
+  { value: 'mod', label: '模组' },
   { value: 'resourcepack', label: '资源包' },
   { value: 'shader', label: '光影包' },
+  { value: 'modpack', label: '整合包' },
   { value: 'world', label: '世界存档' }
 ]
 
 export const KIND_LABELS: Record<ProjectKind, string> = {
-  mod: 'Mod',
+  mod: '模组',
   modpack: '整合包',
   resourcepack: '资源包',
   shader: '光影包',
@@ -81,6 +82,13 @@ export const SORT_TABS: Array<{ value: NonNullable<SearchQuery['sort']>; label: 
  */
 export function usesLoader(kind: ProjectKind): boolean {
   return kind === 'mod' || kind === 'modpack'
+}
+
+/** `DownloadJob.kind` values produced by a content install — what the page's task panel shows. */
+export const CONTENT_JOB_KINDS: DownloadKind[] = ['mod', 'resource-pack', 'shader', 'world', 'modpack']
+
+export function isContentJob(job: DownloadJob): boolean {
+  return CONTENT_JOB_KINDS.includes(job.kind)
 }
 
 /** CurseForge always answers 403 / `unsupported` without a key, so the view asks first. */
@@ -126,19 +134,12 @@ export function formatDate(value: string | number): string {
 }
 
 export function formatSize(bytes: number): string {
-  if (!bytes || bytes <= 0) return '—'
+  // A missing or fractional size means the repository did not report one, not "0 B".
+  if (!Number.isFinite(bytes) || bytes < 1) return '—'
   if (bytes < 1024) return `${bytes} B`
   if (bytes < 1024 * 1024) return `${(bytes / 1024).toFixed(1)} KB`
   if (bytes < 1024 * 1024 * 1024) return `${(bytes / 1024 / 1024).toFixed(1)} MB`
   return `${(bytes / 1024 / 1024 / 1024).toFixed(2)} GB`
-}
-
-/** Upstream `formatSpeed`, kept for the install progress line. */
-export function formatSpeed(bytesPerSecond: number): string {
-  if (!bytesPerSecond || bytesPerSecond <= 0) return ''
-  if (bytesPerSecond < 1024) return `${bytesPerSecond.toFixed(0)} B/s`
-  if (bytesPerSecond < 1024 * 1024) return `${(bytesPerSecond / 1024).toFixed(1)} KB/s`
-  return `${(bytesPerSecond / 1024 / 1024).toFixed(1)} MB/s`
 }
 
 /* --------------------------------------------------------------- files & match */
@@ -177,6 +178,13 @@ export function fileMatchesInstance(file: ModFile, instance: InstanceSummary): b
 /** Stable card key (upstream `itemKey`). */
 export function projectKey(project: Pick<ModProject, 'provider' | 'id'>): string {
   return `${project.provider}:${project.id}`
+}
+
+/** Badge text for a provenance value; '' when the file has no known source. */
+export function providerLabel(provider?: ProjectProvider): string {
+  if (provider === 'curseforge') return 'CurseForge'
+  if (provider === 'modrinth') return 'Modrinth'
+  return ''
 }
 
 /* ------------------------------------------------------------------ IPC calls */
@@ -232,6 +240,14 @@ export function readModSettings(): Promise<Settings> {
   return call(api().settings.get())
 }
 
+/**
+ * Writes only the CurseForge key through `settings.set`; the process answers with the whole
+ * record, which the caller adopts so the UI shows what was really stored.
+ */
+export function saveCurseForgeKey(value: string): Promise<Settings> {
+  return call(api().settings.set(plain({ curseForgeApiKey: value.trim() })))
+}
+
 export function openInstanceDir(instanceId: string): Promise<boolean> {
   return maybe(api().instance.openDir(instanceId), false)
 }
@@ -241,24 +257,30 @@ export function openExternal(url: string): Promise<boolean> {
   return maybe(api().app.openExternal(url), false)
 }
 
-/** `.jar` / `.zip` chooser used by 从磁盘安装; undefined when the dialog is dismissed. */
-export function pickProjectFile(kind: ProjectKind): Promise<string | undefined> {
-  const isPack = kind === 'modpack'
+/**
+ * `.jar` / `.zip` chooser used by 从磁盘安装. `installed()` only ever reads the instance's
+ * `mods` folder, so this writes there (`kind: 'mod'`) instead of pretending to place a
+ * resource pack somewhere the list cannot see.
+ */
+export function pickModFile(): Promise<string | undefined> {
   return maybe(
-    api().app.pickFile(isPack ? '选择整合包文件' : '选择模组文件', [
-      {
-        name: isPack ? '整合包' : 'Minecraft 模组',
-        extensions: isPack ? ['mrpack', 'zip'] : ['jar', 'zip', 'litemod']
-      }
-    ]),
+    api().app.pickFile('选择模组文件', [{ name: 'Minecraft 模组', extensions: ['jar', 'zip', 'litemod'] }]),
     undefined
   )
 }
 
 /* ------------------------------------------------------------------ job pushes */
 
+export function downloadJobs(): Promise<DownloadJob[]> {
+  return call(api().download.jobs())
+}
+
 export function cancelJob(jobId: string): Promise<boolean> {
-  return maybe(api().download.cancel(jobId), false)
+  return call(api().download.cancel(jobId))
+}
+
+export function retryJob(jobId: string): Promise<DownloadJob> {
+  return call(api().download.retry(jobId))
 }
 
 /** Live progress for the running job (`mouc:progress`). */

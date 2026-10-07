@@ -663,7 +663,7 @@ export const PROJECT_VERSIONS: Record<string, ProjectVersion[]> = {
       loaders: ['fabric'],
       gameVersions: ['1.21.1', '1.21.4', '26.3'],
       dependencies: [],
-      files: [modFile('sodium-fabric-0.6.6.jar', 'sodium', 0.6_120_000)]
+      files: [modFile('sodium-fabric-0.6.6.jar', 'sodium', 6_120_000)]
     },
     {
       id: 'sodium-0.5.11',
