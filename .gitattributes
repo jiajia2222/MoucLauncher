@@ -1,0 +1,23 @@
+* text=auto eol=lf
+*.png binary
+*.ico binary
+*.icns binary
+*.jar binary
+*.zip binary
+*.exe binary
+*.dll binary
+*.node binary
+*.tgz binary
+*.yml text eol=lf
+*.yaml text eol=lf
+*.ts text eol=lf
+*.tsx text eol=lf
+*.vue text eol=lf
+*.mjs text eol=lf
+*.md text eol=lf
+*.json text eol=lf
+*.svg text eol=lf
+*.css text eol=lf
+*.html text eol=lf
+*.nsi text eol=crlf
+*.bat text eol=crlf

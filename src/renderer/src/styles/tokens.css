@@ -1,0 +1,197 @@
+/* =============================================================================
+   MoucLauncher design tokens
+   -----------------------------------------------------------------------------
+   Brand rules encoded here:
+   - one neutral surface ramp per theme + exactly ONE accent hue (azure, hue 199)
+   - semantic success / warning / danger are single desaturated hues, never
+     gradients, never multi-colour palettes
+   - every text/background pair used as body copy clears WCAG AA (4.5:1);
+     the numbers in the comments are measured (relative luminance) ratios
+   - all sizes sit on a 4px grid; type scale is 12/13/14/16/20/24/32
+   Components may only reference these custom properties — no literal colours.
+   ========================================================================== */
+
+:root {
+  /* ----------------------------------------------------------------- fonts */
+  --m-font-ui:
+    'Segoe UI Variable Text', 'Microsoft YaHei UI', 'Microsoft YaHei', system-ui,
+    -apple-system, 'Segoe UI', sans-serif;
+  --m-font-mono:
+    'Cascadia Mono', 'Segoe UI Mono', Consolas, 'Courier New', monospace;
+
+  /* ------------------------------------------------------------ type scale */
+  --m-fs-12: 12px; /* meta, kbd, status bar            */
+  --m-fs-13: 13px; /* body (default)                   */
+  --m-fs-14: 14px; /* emphasised body / table          */
+  --m-fs-16: 16px; /* section title                    */
+  --m-fs-20: 20px; /* page title                       */
+  --m-fs-24: 24px; /* metric                           */
+  --m-fs-32: 32px; /* hero number                      */
+  --m-lh-tight: 1.25;
+  --m-lh-ui: 1.45;
+  --m-lh-loose: 1.65;
+  --m-ls-cjk: 0.01em; /* slight tracking keeps YaHei readable at 12px */
+
+  /* -------------------------------------------------------------- geometry */
+  --m-sp-0: 0px;
+  --m-sp-1: 4px;
+  --m-sp-2: 8px;
+  --m-sp-3: 12px;
+  --m-sp-4: 16px;
+  --m-sp-5: 20px;
+  --m-sp-6: 24px;
+  --m-sp-7: 32px;
+  --m-sp-8: 40px;
+  --m-sp-9: 48px;
+
+  --m-r-xs: 3px;
+  --m-r-sm: 5px;
+  --m-r-md: 8px;
+  --m-r-lg: 12px;
+  --m-r-xl: 16px;
+  --m-r-full: 999px;
+
+  --m-line: 1px; /* hairline, kept as a token for crisp 1px borders on zoom */
+  --m-icon-16: 16px;
+  --m-icon-20: 20px;
+  /* label column of MFieldRow in inline mode */
+  --m-field-label: 168px;
+
+  /* chrome sizes */
+  --m-titlebar-h: 40px;
+  --m-rail-w: 208px;
+  --m-status-h: 28px;
+
+  /* --------------------------------------------------------------- motion */
+  --m-dur-1: 120ms; /* press / hover            */
+  --m-dur-2: 200ms; /* popover, toggle, enter   */
+  --m-dur-3: 320ms; /* modal, view change       */
+  --m-dur-spin: 1200ms; /* indeterminate progress */
+  --m-ease-standard: cubic-bezier(0.2, 0, 0, 1);
+  --m-ease-out: cubic-bezier(0.16, 0.84, 0.32, 1);
+  --m-ease-in: cubic-bezier(0.6, 0, 0.88, 0.35);
+
+  /* ------------------------------------------------------------- stacking */
+  --m-z-base: 0;
+  --m-z-sticky: 10;
+  --m-z-rail: 20;
+  --m-z-popover: 40;
+  --m-z-tooltip: 60;
+  --m-z-modal: 80;
+  --m-z-toast: 90;
+
+  /* ---------------------------------------------------------- focus ring */
+  --m-focus-color: #37a9de;
+  --m-focus-width: 2px;
+  --m-focus-offset: 2px;
+}
+
+/* ==============================================================================
+   DARK — measured contrast (fg vs surface):
+   primary   base 15.6:1 · raised 13.4:1 · active 10.5:1
+   secondary base  8.3:1 · raised  7.1:1 · active  5.6:1
+   muted     base  6.7:1 · raised  5.8:1 · active  4.5:1
+   accent text     base  8.3:1 · raised  7.4:1 · active  5.8:1
+   ink on accent fill 7.1:1 (accent), 5.2:1 (pressed)
+   ========================================================================== */
+[data-theme='dark'] {
+  color-scheme: dark;
+
+  /* surface ramp */
+  --m-surface-base: #121519;
+  --m-surface-elevated: #171b21;
+  --m-surface-raised: #1e232a;
+  --m-surface-hover: #262c34;
+  --m-surface-active: #2e353e;
+  --m-surface-sunken: #0d1013; /* behind wells: code, console */
+
+  /* text ramp */
+  --m-text-primary: #e9edf2;
+  --m-text-secondary: #a6afbb;
+  --m-text-muted: #939daa;
+  --m-text-inverse: #0e1216;
+
+  /* accent — the single hue (azure) */
+  --m-accent: #37a9de;
+  --m-accent-hover: #55b8e8;
+  --m-accent-pressed: #2a90c0;
+  --m-accent-soft: rgba(55, 169, 222, 0.14);
+  --m-accent-soft-strong: rgba(55, 169, 222, 0.26);
+  --m-accent-line: rgba(55, 169, 222, 0.42);
+  --m-accent-text: #58bceb;
+  --m-accent-ink: #0e1216;
+
+  /* semantic (desaturated, single hue each) */
+  --m-success: #74b98e;
+  --m-success-soft: rgba(116, 185, 142, 0.14);
+  --m-warning: #d8ae68;
+  --m-warning-soft: rgba(216, 174, 104, 0.14);
+  --m-danger: #e58388;
+  --m-danger-soft: rgba(229, 131, 136, 0.16);
+
+  /* border ramp */
+  --m-border-hairline: #22272e;
+  --m-border-weak: #2b323b;
+  --m-border-strong: #3a434e;
+  --m-border-accent: var(--m-accent-line);
+
+  /* elevation */
+  --m-shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.5);
+  --m-shadow-md: 0 4px 12px rgba(0, 0, 0, 0.52);
+  --m-shadow-lg: 0 12px 32px rgba(0, 0, 0, 0.56);
+  --m-shadow-overlay: 0 24px 64px rgba(0, 0, 0, 0.64);
+  --m-scrim: rgba(8, 10, 13, 0.62);
+  --m-focus-color: #37a9de;
+}
+
+/* ==============================================================================
+   LIGHT — measured contrast:
+   primary   base 16.6:1 · raised 16.2:1 · active 12.5:1
+   secondary base  7.4:1 · raised  7.9:1 · active  6.4:1
+   muted     base  5.6:1 · raised  6.2:1 · active  4.7:1
+   accent text     base  5.2:1 · raised  5.8:1
+   ink on accent fill 5.8:1 (accent), 6.9:1 (pressed)
+   ========================================================================== */
+[data-theme='light'] {
+  color-scheme: light;
+
+  --m-surface-base: #f2f3f6;
+  --m-surface-elevated: #fafbfd;
+  --m-surface-raised: #ffffff;
+  --m-surface-hover: #e7e9ee;
+  --m-surface-active: #dce0e6;
+  --m-surface-sunken: #eceef2;
+
+  --m-text-primary: #1a1e24;
+  --m-text-secondary: #474e57;
+  --m-text-muted: #5a626e;
+  --m-text-inverse: #ffffff;
+
+  --m-accent: #0a6b9f;
+  --m-accent-hover: #09628f;
+  --m-accent-pressed: #075880;
+  --m-accent-soft: rgba(10, 107, 159, 0.1);
+  --m-accent-soft-strong: rgba(10, 107, 159, 0.2);
+  --m-accent-line: rgba(10, 107, 159, 0.4);
+  --m-accent-text: #0a6b9f;
+  --m-accent-ink: #ffffff;
+
+  --m-success: #2a7046;
+  --m-success-soft: rgba(42, 112, 70, 0.12);
+  --m-warning: #7e6016;
+  --m-warning-soft: rgba(126, 96, 22, 0.14);
+  --m-danger: #a8353b;
+  --m-danger-soft: rgba(168, 53, 59, 0.12);
+
+  --m-border-hairline: #e2e5ea;
+  --m-border-weak: #d3d8df;
+  --m-border-strong: #c0c7d1;
+  --m-border-accent: var(--m-accent-line);
+
+  --m-shadow-sm: 0 1px 2px rgba(24, 30, 38, 0.12);
+  --m-shadow-md: 0 4px 12px rgba(24, 30, 38, 0.13);
+  --m-shadow-lg: 0 12px 32px rgba(24, 30, 38, 0.16);
+  --m-shadow-overlay: 0 24px 64px rgba(24, 30, 38, 0.22);
+  --m-scrim: rgba(28, 32, 38, 0.34);
+  --m-focus-color: #0a6b9f;
+}

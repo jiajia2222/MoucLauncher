@@ -1,0 +1,19 @@
+{
+  "data": [
+    {
+      "id": 306198,
+      "name": "Just Enough Items (JEI)",
+      "slug": "jei",
+      "description": "A recipe and cheat viewer.",
+      "authors": [{ "name": "mezz" }],
+      "logo": { "url": "https://media.forgecdn.net/avatars/8/99/logo.png", "thumbnail": "https://media.forgecdn.net/avatars/8/99/thumbnail.png" },
+      "downloadCount": 220000000,
+      "dateModified": 1720000000000,
+      "latestFiles": [
+        { "id": 5000001, "modId": 306198, "displayName": "jei-1.20.1-forge-15.2.0.27.jar", "fileName": "jei-1.20.1-forge-15.2.0.27.jar", "downloadUrl": null, "fileLength": 1200000, "hashes": [{ "value": "0123456789abcdef0123456789abcdef01234567", "algorithm": 1 }, { "value": "deadbeef", "algorithm": 2 }], "gameVersions": ["1.20.1", "Forge"], "dependencies": [] }
+      ],
+      "categories": [{ "name": "Utility" }, { "name": "Forge" }]
+    }
+  ],
+  "pagination": { "totalCount": 1, "pageSize": 20, "index": 0 }
+}

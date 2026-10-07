@@ -1,0 +1,102 @@
+{
+ "formatVersion": 1,
+ "game": "minecraft",
+ "versionId": "8.1.0",
+ "name": "Fabulously Optimized (trimmed fixture)",
+ "files": [
+  {
+   "path": "mods/BetterGrassify-1.7.0+fabric.1.21.4.jar",
+   "hashes": {
+    "sha1": "8bada432a857ce7af3772f60a19901ca85f3dfb3",
+    "sha512": "5ae1d24c3917c2e7b936c2b57cbfbb5b4b5f20ecc03191454a5255390a69dcdd96b6c7983036c1759c9cec4fbe48ab5077db34e17116b71ffe560ffe73e614b9"
+   },
+   "env": {
+    "client": "required",
+    "server": "required"
+   },
+   "downloads": [
+    "https://cdn.modrinth.com/data/m5T5xmUy/versions/HxwKuBEU/BetterGrassify-1.7.0%2Bfabric.1.21.4.jar"
+   ],
+   "fileSize": 155059
+  },
+  {
+   "path": "mods/Debugify-1.21.4+1.1.jar",
+   "hashes": {
+    "sha1": "ca7bf4d2bf863953c0265024619b536638827e8e",
+    "sha512": "6fcc75db9606e443b976b913aee9cba244dc288f652c1d992329087eefae174f92b345966c925e3749d7b819634f0db4e5a285200597b9641788f22a7c7e2ea5"
+   },
+   "env": {
+    "client": "required",
+    "server": "required"
+   },
+   "downloads": [
+    "https://cdn.modrinth.com/data/QwxR6Gcd/versions/yjpSgPEw/Debugify-1.21.4%2B1.1.jar"
+   ],
+   "fileSize": 298681
+  },
+  {
+   "path": "mods/ForgeConfigAPIPort-v21.4.1-1.21.4-Fabric.jar",
+   "hashes": {
+    "sha1": "3dbbaddb4df5533b7b806c82c27cfb389f5bef54",
+    "sha512": "a5f84411c0b7b9e5e8d267e268183fcb2e46df955fd976ed3f4bc1fd45249ab5f902a23ab93cbdc45d5bb409a5d570e7f7ec9794ca74f4b6115bf3e95d29914b"
+   },
+   "env": {
+    "client": "required",
+    "server": "required"
+   },
+   "downloads": [
+    "https://cdn.modrinth.com/data/ohNO6lps/versions/lTrPTmMK/ForgeConfigAPIPort-v21.4.1-1.21.4-Fabric.jar"
+   ],
+   "fileSize": 641130
+  },
+  {
+   "path": "mods/ImmediatelyFast-Fabric-1.8.0+1.21.4.jar",
+   "hashes": {
+    "sha1": "c18647140192d2f1eb5b09390ea5cabe0e0e1681",
+    "sha512": "0e9f4d75938ded02e18830277360a5c7327a2f4438250e33d5db8c82adb66b0053677bc5b07f76d0fe9eab63d493e3e9b3a2ddb3ee35743bc425200d2835892c"
+   },
+   "env": {
+    "client": "required",
+    "server": "required"
+   },
+   "downloads": [
+    "https://cdn.modrinth.com/data/5ZwdcRci/versions/ddjmgf0b/ImmediatelyFast-Fabric-1.8.0%2B1.21.4.jar"
+   ],
+   "fileSize": 227072
+  },
+  {
+   "path": "mods/server-only-example.jar",
+   "hashes": {
+    "sha1": "0000000000000000000000000000000000000000",
+    "sha512": "00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
+   },
+   "env": {
+    "client": "unsupported",
+    "server": "required"
+   },
+   "downloads": [
+    "https://cdn.modrinth.com/data/EXAMPLE/versions/EXAMPLE/server-only-example.jar"
+   ],
+   "fileSize": 1234
+  },
+  {
+   "path": "resourcepacks/Mod Menu Helper.zip",
+   "hashes": {
+    "sha1": "1111111111111111111111111111111111111111"
+   },
+   "env": {
+    "client": "required",
+    "server": "optional"
+   },
+   "downloads": [
+    "https://cdn.modrinth.com/data/EXAMPLE/versions/EXAMPLE/Mod%20Menu%20Helper.zip",
+    "https://download.modrinth.cn/data/EXAMPLE/versions/EXAMPLE/Mod%20Menu%20Helper.zip"
+   ],
+   "fileSize": 70347
+  }
+ ],
+ "dependencies": {
+  "fabric-loader": "0.16.14",
+  "minecraft": "1.21.4"
+ }
+}

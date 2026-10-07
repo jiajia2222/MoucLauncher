@@ -1,0 +1,23 @@
+<!doctype html>
+<!-- TEMPORARY verification harness for the ported kamu views. Deleted after the
+     screenshot pass; the shell entry (App.vue / main.ts) owns the real mount. -->
+<html lang="zh-CN" data-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MoucLauncher — kamu preview</title>
+    <style>
+      html,
+      body {
+        margin: 0;
+        height: 100%;
+        background: #10191b;
+        overflow: hidden;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app"></div>
+    <script type="module" src="/src/kamu/preview.ts"></script>
+  </body>
+</html>

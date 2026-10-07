@@ -1,0 +1,57 @@
+appId: com.mouc.launcher
+productName: MoucLauncher
+copyright: Copyright © 2026 MoucLauncher
+
+directories:
+  output: release
+  buildResources: build
+
+files:
+  - out/**
+  - resources/**
+  - package.json
+
+asar: true
+compression: normal
+# Fallback name for targets without their own section (the zip 快捷包); nsis/portable
+# override it below.
+artifactName: MoucLauncher-${version}-windows-x64.${ext}
+# Electron ships ~55 locale packs; the launcher only ever shows two.
+electronLanguages:
+  - zh-CN
+  - en-US
+
+electronVersion: 44.6.0
+
+win:
+  icon: build/icon.ico
+  requestedExecutionLevel: asInvoker
+  target:
+    - target: nsis
+      arch: [x64]
+    - target: portable
+      arch: [x64]
+    - target: zip
+      arch: [x64]
+
+portable:
+  artifactName: MoucLauncher-${version}-portable-x64.${ext}
+  requestExecutionLevel: user
+
+nsis:
+  artifactName: MoucLauncher-${version}-Setup-x64.${ext}
+  oneClick: false
+  perMachine: false
+  allowToChangeInstallationDirectory: true
+  allowElevation: true
+  createDesktopShortcut: true
+  createStartMenuShortcut: true
+  shortcutName: MoucLauncher
+  deleteAppDataOnUninstall: false
+  installerIcon: build/icon.ico
+  uninstallerIcon: build/icon.ico
+  installerHeaderIcon: build/icon.ico
+  unicode: true
+  warningsAsErrors: false
+
+publish: null

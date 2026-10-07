@@ -1,0 +1,13 @@
+import { defineConfig } from 'vitest/config'
+import { resolve } from 'node:path'
+
+export default defineConfig({
+  resolve: { alias: { '@shared': resolve(__dirname, 'src/shared') } },
+  test: {
+    environment: 'node',
+    include: ['tests/**/*.test.ts'],
+    globals: false,
+    testTimeout: 30_000,
+    hookTimeout: 30_000
+  }
+})

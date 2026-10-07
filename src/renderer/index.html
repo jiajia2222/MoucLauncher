@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="zh-CN" data-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Frameless window: no zoom gestures, no text selection leaking into the titlebar. -->
+    <meta name="color-scheme" content="dark light" />
+    <title>MoucLauncher</title>
+    <script>
+      // First paint must already be in the right theme, or the window flashes light.
+      try {
+        var cached = localStorage.getItem('mouc.theme')
+        document.documentElement.dataset.theme = cached === 'light' ? 'light' : 'dark'
+      } catch (error) {
+        document.documentElement.dataset.theme = 'dark'
+      }
+    </script>
+    <style>
+      html,
+      body {
+        margin: 0;
+        height: 100%;
+        background: var(--m-surface-base, #121519);
+        overflow: hidden;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app"></div>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>

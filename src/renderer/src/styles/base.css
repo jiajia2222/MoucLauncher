@@ -1,0 +1,259 @@
+/* =============================================================================
+   MoucLauncher base layer: reset, scrollbars, selection, focus, helpers.
+   Only tokens are referenced here — no literal colours.
+   ========================================================================== */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body,
+#app {
+  height: 100%;
+}
+
+html {
+  /* CJK-first: font-size stays 16px so the px type scale is exact. */
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+body {
+  font-family: var(--m-font-ui);
+  font-size: var(--m-fs-13);
+  line-height: var(--m-lh-ui);
+  letter-spacing: var(--m-ls-cjk);
+  color: var(--m-text-primary);
+  background: var(--m-surface-base);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow: hidden;
+  text-rendering: optimizeLegibility;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-weight: 600;
+  letter-spacing: 0;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+  color: inherit;
+  letter-spacing: inherit;
+}
+
+button {
+  border: 0;
+  background: none;
+  cursor: pointer;
+}
+
+button:disabled {
+  cursor: not-allowed;
+}
+
+a {
+  color: var(--m-accent-text);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+img,
+svg {
+  display: block;
+}
+
+svg {
+  overflow: visible;
+}
+
+code,
+pre {
+  font-family: var(--m-font-mono);
+  font-size: 0.94em;
+}
+
+/* ------------------------------------------------------------------ focus */
+/* Keyboard focus must stay visible; pointer interactions never show a ring. */
+:focus {
+  outline: none;
+}
+
+:focus-visible {
+  outline: var(--m-focus-width) solid var(--m-focus-color);
+  outline-offset: var(--m-focus-offset);
+  border-radius: var(--m-r-xs);
+}
+
+/* Elements that draw their own ring (buttons, inputs) use the token directly. */
+.m-no-native-focus:focus-visible {
+  outline: none;
+}
+
+/* -------------------------------------------------------------- scrollbars */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--m-border-strong) transparent;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--m-border-strong);
+  border: 3px solid transparent;
+  background-clip: content-box;
+  border-radius: var(--m-r-full);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--m-text-muted);
+  background-clip: content-box;
+}
+
+::-webkit-scrollbar-corner {
+  background: transparent;
+}
+
+::selection {
+  background: var(--m-accent-soft-strong);
+  color: var(--m-text-primary);
+}
+
+/* ------------------------------------------------------ frameless dragging */
+/* The titlebar owns the drag region; every interactive child opts out. */
+.drag {
+  -webkit-app-region: drag;
+  app-region: drag;
+  user-select: none;
+}
+
+.no-drag,
+.drag .no-drag {
+  -webkit-app-region: no-drag;
+  app-region: no-drag;
+}
+
+/* -------------------------------------------------------------- utilities */
+/* Deliberately short: each of these is used by the shell, gallery or views. */
+.u-row {
+  display: flex;
+  align-items: center;
+  gap: var(--m-sp-2);
+}
+
+.u-col {
+  display: flex;
+  flex-direction: column;
+  gap: var(--m-sp-2);
+}
+
+.u-between {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--m-sp-2);
+}
+
+.u-wrap {
+  flex-wrap: wrap;
+}
+
+.u-grow {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.u-nowrap {
+  white-space: nowrap;
+}
+
+.u-truncate {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.u-clamp-2 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.u-muted {
+  color: var(--m-text-muted);
+}
+
+.u-secondary {
+  color: var(--m-text-secondary);
+}
+
+.u-accent {
+  color: var(--m-accent-text);
+}
+
+.u-mono {
+  font-family: var(--m-font-mono);
+  letter-spacing: 0;
+}
+
+.u-num {
+  font-family: var(--m-font-mono);
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0;
+}
+
+.u-hidden {
+  display: none !important;
+}
+
+/* Screen-reader-only text (icon buttons carry a visible tooltip, not a label). */
+.u-sr {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+/* --------------------------------------------------------------- motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 1ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 1ms !important;
+  }
+}

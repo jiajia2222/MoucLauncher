@@ -1,0 +1,33 @@
+<!doctype html>
+<!-- TEMPORARY verification harness for the ported Accounts + Java views; deleted after screenshot QA. -->
+<html lang="zh-CN" data-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Accounts / Java preview</title>
+    <style>
+      html,
+      body {
+        margin: 0;
+        height: 100%;
+        background: var(--bg, #10191b);
+        overflow: hidden;
+      }
+      #app {
+        height: 100%;
+        padding: 16px;
+        overflow: auto;
+      }
+      #toast-host {
+        position: fixed;
+        right: 16px;
+        bottom: 16px;
+        z-index: 12000;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app"></div>
+    <div id="toast-host"></div>
+    <script type="module" src="/accounts-java-preview.ts"></script>
+  </body>
+</html>
