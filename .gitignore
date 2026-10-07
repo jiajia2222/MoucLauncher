@@ -13,9 +13,11 @@ build/raw/
 
 build/shots/
 /tmp
-*.pem
-!tests/fixtures/**/*.key
 
 dist-web/
 build/sheet-*.png
 build/raw/
+
+# Throwaway self-signed certs (CN=127.0.0.1, valid to 2036) used by the HTTPS
+# transport tests. They are fixtures, not credentials: never ignore them.
+!tests/download/fixtures/*.pem
