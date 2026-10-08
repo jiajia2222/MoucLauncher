@@ -1,6 +1,6 @@
 # Microsoft 正版登录流程（account/microsoft.ts）
 
-本文档说明 MoucLauncher 的 Microsoft 登录链路、哪些部分已验证、哪些未验证，
+本文档说明 MoucX 的 Microsoft 登录链路、哪些部分已验证、哪些未验证，
 以及如何创建自己的 Azure 应用（launcher 不内置任何客户端 ID）。
 
 ## 创建 Azure 应用

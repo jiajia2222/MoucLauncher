@@ -2,7 +2,7 @@
  * Mod browsing / management data layer for the ported KAMUCL views.
  *
  * Upstream (`src/renderer/src/api.ts` in KAMUCL) exposes flat functions that return plain
- * values and reject on failure. MoucLauncher's backend is `window.mouc`, whose every method
+ * values and reject on failure. MoucX's backend is `window.mouc`, whose every method
  * resolves to `Result<T>`, so each call here goes through `call()` / `maybe()` from
  * `./core`, and everything leaving the renderer is sanitised with `plain()` (Electron cannot
  * structured-clone Vue reactive proxies).

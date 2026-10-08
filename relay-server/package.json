@@ -1,12 +1,12 @@
 {
-  "name": "mouc-relay-server",
+  "name": "moucx-relay-server",
   "version": "1.0.0",
-  "description": "MoucLauncher 跨网联机中继服务端（把两个 TCP 字节流接起来）",
+  "description": "MoucX 跨网联机中继服务端（把两个 TCP 字节流接起来）",
   "license": "MIT",
   "private": false,
   "main": "index.js",
   "bin": {
-    "mouc-relay": "index.js"
+    "moucx-relay": "index.js"
   },
   "scripts": {
     "start": "node index.js"

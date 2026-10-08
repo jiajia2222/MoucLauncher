@@ -3,7 +3,7 @@
  * InstanceCenterProgress — the live download panel both ported views share.
  *
  * Upstream keeps this state in a global store (`store.installProgress`) and shows it inside
- * the instance center as "进度及取消入口位于下载中心". MoucLauncher pushes the same data
+ * the instance center as "进度及取消入口位于下载中心". MoucX pushes the same data
  * through `mouc.on('mouc:progress')` / `mouc:job-finished`, so the panel owns its own
  * subscription: mount, seed from `download.jobs()`, follow the pushes, cancel or retry.
  *

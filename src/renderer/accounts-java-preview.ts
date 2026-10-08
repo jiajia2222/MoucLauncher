@@ -10,7 +10,7 @@ import { createMockApi } from './src/mock/api'
 
 const params = new URLSearchParams(window.location.search)
 window.mouc = createMockApi({ empty: params.has('empty') })
-window.__MOUC_WEB__ = true
+window.__MOUCX_WEB__ = true
 
 document.documentElement.dataset.theme = params.get('theme') ?? 'dark'
 document.documentElement.dataset.platform = 'win32'

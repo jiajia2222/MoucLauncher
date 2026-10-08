@@ -3,7 +3,7 @@
  * Cross-network room panel.
  *
  * Upstream offers three tunnel engines (FRP, VoxLink P2P, Terracotta) behind
- * `FriendConnectView`'s method picker. MoucLauncher ships one: a relay server that
+ * `FriendConnectView`'s method picker. MoucX ships one: a relay server that
  * forwards a local game port for a room. The panel therefore takes upstream's room
  * affordances wholesale — `connect-tabs`, `connection-field`, `room-card`,
  * `join-guide`, `connection-details`, `network-metrics` — and drops the picker,

@@ -1,5 +1,5 @@
 /**
- * MoucLauncher 跨网联机中继服务端。
+ * MoucX 跨网联机中继服务端。
  *
  * 它只做一件事：把两个 TCP 字节流接起来。不解析 Minecraft 协议、不存任何文件、
  * 不执行任何外部命令。房间口令只保存在内存里，进程重启即失效。
@@ -21,7 +21,7 @@ const MAX_CONTROL_BYTES = 64 * 1024
 const MAX_DATA_BYTES = 256 * 1024
 const DATA_MARKER = 0x01
 const DATA_HEADER_BYTES = 3
-const PROTOCOL_NAME = 'mouc-relay'
+const PROTOCOL_NAME = 'moucx-relay'
 const PROTOCOL_VERSION = 1
 
 const CONTROL_TYPES = new Set([
@@ -250,11 +250,11 @@ function handleControl(peer, frame) {
 const server = createServer((req, res) => {
   if (req.url === '/healthz') {
     res.writeHead(200, { 'content-type': 'text/plain; charset=utf-8' })
-    res.end(`mouc-relay ok rooms=${rooms.size}\n`)
+    res.end(`moucx-relay ok rooms=${rooms.size}\n`)
     return
   }
   res.writeHead(426, { 'content-type': 'text/plain; charset=utf-8' })
-  res.end('这是一个 WebSocket 中继，请用 MoucLauncher 的 联机 页面连接 ws://此主机:' + PORT + '/ws\n')
+  res.end('这是一个 WebSocket 中继，请用 MoucX 的 联机 页面连接 ws://此主机:' + PORT + '/ws\n')
 })
 
 const wss = new WebSocketServer({ server, maxPayload: MAX_DATA_BYTES + 1024 })

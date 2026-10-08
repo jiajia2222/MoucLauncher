@@ -1,6 +1,6 @@
 <script setup lang="ts">
 /**
- * MButton — the only way to press something in MoucLauncher.
+ * MButton — the only way to press something in MoucX.
  * Four variants, three sizes, a built-in busy state that keeps the label width.
  */
 import { computed } from 'vue'

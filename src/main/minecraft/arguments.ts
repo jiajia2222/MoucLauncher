@@ -19,7 +19,7 @@ import {
 import { libraryPath, nativesDir as defaultNativesDir } from '../core/paths'
 import { virtualAssetsDir } from './assets'
 
-export const LAUNCHER_NAME = 'MoucLauncher'
+export const LAUNCHER_NAME = 'MoucX'
 
 /** `-Dlog4j.configurationFile` target for `logging.client.file`. */
 export function loggingClientPath(paths: PathInfo, id = 'client'): string {
@@ -189,7 +189,7 @@ export function placeholderTable(ctx: PlaceholderContext): Record<string, string
     natives_directory: ctx.nativesDirectory,
     classpath: joinedClasspath,
     launcher_name: LAUNCHER_NAME,
-    launcher_version: ctx.launcherVersion ?? '1.0.0',
+    launcher_version: ctx.launcherVersion ?? '1.1.0',
     // `-Dlog4j.configurationFile=${path}` from logging.client.argument.
     path: resolved.logging?.client?.file
       ? loggingClientPath(ctx.paths, resolved.logging.client.file.id ?? 'client')

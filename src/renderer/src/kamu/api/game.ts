@@ -2,7 +2,7 @@
  * Launch / runtime adapters for the ported KAMUCL views.
  *
  * Upstream's `launchGame()` only acknowledged the request and streamed `LaunchState` events;
- * MoucLauncher resolves the spawn itself (`GameProcessInfo`) and reports the exit through
+ * MoucX resolves the spawn itself (`GameProcessInfo`) and reports the exit through
  * `mouc:game-exit`, so the home view drives its launching state from the promise plus the
  * live download progress of any files the pre-launch check had to fetch.
  *

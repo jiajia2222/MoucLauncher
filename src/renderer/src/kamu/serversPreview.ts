@@ -30,12 +30,12 @@ function installBridge(): MoucApi {
 
 if (!window.mouc) {
   window.mouc = installBridge()
-  window.__MOUC_WEB__ = true
+  window.__MOUCX_WEB__ = true
 }
 
 if (query.has('demo')) {
   void window.mouc.server.lanScan()
-  window.setTimeout(() => void window.mouc.server.relayHost({ targetPort: 25_565, room: 'MOUC-DEMO' }), 300)
+  window.setTimeout(() => void window.mouc.server.relayHost({ targetPort: 25_565, room: 'MoucX-DEMO' }), 300)
 }
 
 const Shell = defineComponent({

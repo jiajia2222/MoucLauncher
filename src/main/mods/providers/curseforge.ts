@@ -156,7 +156,7 @@ export function createCurseForgeProvider(
   const headers = (): Record<string, string> => {
     const key = apiKey.trim()
     if (!key) throw new AppError('unsupported', '未配置 CurseForge API Key')
-    return { 'x-access-token': key, 'user-agent': 'MoucLauncher' }
+    return { 'x-access-token': key, 'user-agent': 'MoucX' }
   }
 
   return {

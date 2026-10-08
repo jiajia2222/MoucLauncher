@@ -6,7 +6,7 @@
  * Dropped from upstream: the address privacy mask. It is driven by KAMUCL's
  * `shared/serverPrivacy` module, which exists because upstream merges servers out of
  * shared `servers.dat` files where one row can belong to somebody else's folder.
- * MoucLauncher's list is per instance and owned by this app, so there is nothing to
+ * MoucX's list is per instance and owned by this app, so there is nothing to
  * hide; the line keeps upstream's typography and its inline copy affordance.
  */
 defineProps<{ address: string; copyable?: boolean }>()

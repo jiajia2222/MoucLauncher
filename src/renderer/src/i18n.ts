@@ -1,5 +1,5 @@
 /**
- * MoucLauncher i18n.
+ * MoucX i18n.
  *
  * Chinese-first: `zh` is the source of truth and its keys define the `I18nKey`
  * union. `en` is typed as `Record<I18nKey, string>`, so a key added to zh and not
@@ -16,7 +16,7 @@ import type { Language } from '@shared/types'
 
 const zh = {
   /* ---------------------------------------------------------------- app */
-  'app.name': 'MoucLauncher',
+  'app.name': 'MoucX',
   'app.tagline': '自研 Minecraft 启动器',
   'app.loadingView': '视图加载中',
   'app.viewPending': '视图未就绪',
@@ -383,7 +383,7 @@ const zh = {
 export type I18nKey = keyof typeof zh
 
 const en: Record<I18nKey, string> = {
-  'app.name': 'MoucLauncher',
+  'app.name': 'MoucX',
   'app.tagline': 'A self-built Minecraft launcher',
   'app.loadingView': 'Loading view',
   'app.viewPending': 'View not ready',

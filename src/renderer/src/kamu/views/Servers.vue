@@ -725,7 +725,7 @@ onBeforeUnmount(() => {
 @media(min-width:1121px) { .servers-page { max-width:1480px;margin-inline:auto;width:100%; }.servers-page .server-detail { position:sticky;top:0; } }
 @media(max-width:1120px) { .servers-page .server-workspace { grid-template-columns:minmax(0,1fr); }.servers-page .server-list{max-height:360px;overflow:auto}.servers-page .server-detail{position:static} }
 
-/* ---- MoucLauncher additions (upstream had no per-row actions, no favicon, and no
+/* ---- MoucX additions (upstream had no per-row actions, no favicon, and no
    instance picker): these extend the rules above without touching them. ---- */
 /* Upstream's ServersView is a full-height page whose list scrolls inside the workspace.
    This page also carries the LAN and room panels below it, so the workspace must keep

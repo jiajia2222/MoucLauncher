@@ -13,9 +13,9 @@ const RELEASE = path.join(ROOT, 'release')
 const version = JSON.parse(fs.readFileSync(path.join(ROOT, 'package.json'), 'utf8')).version
 
 const EXPECTED = [
-  { name: `MoucLauncher-${version}-Setup-x64.exe`, minBytes: 20 * 1024 * 1024, what: '安装包' },
-  { name: `MoucLauncher-${version}-portable-x64.exe`, minBytes: 20 * 1024 * 1024, what: '免安装单文件' },
-  { name: `MoucLauncher-${version}-windows-x64.zip`, minBytes: 20 * 1024 * 1024, what: '快捷包' }
+  { name: `MoucX-${version}-Setup-x64.exe`, minBytes: 20 * 1024 * 1024, what: '安装包' },
+  { name: `MoucX-${version}-portable-x64.exe`, minBytes: 20 * 1024 * 1024, what: '免安装单文件' },
+  { name: `MoucX-${version}-windows-x64.zip`, minBytes: 20 * 1024 * 1024, what: '快捷包' }
 ]
 
 const problems = []

@@ -67,7 +67,8 @@ export const copy = defineDict({
   gameRootLabel: ['游戏目录', 'Game folder'],
   statsLine: ['{size} · {files} 个文件', '{size} · {files} files'],
   /* brand */
-  brandName: ['MOUC', 'MOUC'],
+  brandName: ['MoucX', 'MoucX'],
+  brandTail: ['X', 'X'],
   brandSub: ['Minecraft 启动器', 'Minecraft Launcher'],
   motto: ['用心做好每一次启动', 'A careful launch, every time']
 })

@@ -1,6 +1,6 @@
-appId: com.mouc.launcher
-productName: MoucLauncher
-copyright: Copyright © 2026 MoucLauncher
+appId: com.moucx.app
+productName: MoucX
+copyright: Copyright © 2026 MoucX
 
 directories:
   output: release
@@ -15,7 +15,7 @@ asar: true
 compression: normal
 # Fallback name for targets without their own section (the zip 快捷包); nsis/portable
 # override it below.
-artifactName: MoucLauncher-${version}-windows-x64.${ext}
+artifactName: MoucX-${version}-windows-x64.${ext}
 # Electron ships ~55 locale packs; the launcher only ever shows two.
 electronLanguages:
   - zh-CN
@@ -35,18 +35,18 @@ win:
       arch: [x64]
 
 portable:
-  artifactName: MoucLauncher-${version}-portable-x64.${ext}
+  artifactName: MoucX-${version}-portable-x64.${ext}
   requestExecutionLevel: user
 
 nsis:
-  artifactName: MoucLauncher-${version}-Setup-x64.${ext}
+  artifactName: MoucX-${version}-Setup-x64.${ext}
   oneClick: false
   perMachine: false
   allowToChangeInstallationDirectory: true
   allowElevation: true
   createDesktopShortcut: true
   createStartMenuShortcut: true
-  shortcutName: MoucLauncher
+  shortcutName: MoucX
   deleteAppDataOnUninstall: false
   installerIcon: build/icon.ico
   uninstallerIcon: build/icon.ico

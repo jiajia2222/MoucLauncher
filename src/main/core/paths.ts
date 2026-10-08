@@ -43,7 +43,7 @@ export function buildPaths(appData: string, gameRoot: string): PathInfo {
 }
 
 export function defaultGameRoot(appData: string, documents?: string): string {
-  return documents && documents.length > 0 ? path.join(documents, 'MoucLauncher') : path.join(appData, 'minecraft')
+  return documents && documents.length > 0 ? path.join(documents, 'MoucX') : path.join(appData, 'minecraft')
 }
 
 export function launcherStateDir(appData: string): string {

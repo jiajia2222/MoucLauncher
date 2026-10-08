@@ -16,7 +16,7 @@
 | `https://piston-meta.mojang.com/v1/products/java-runtime-epsilon/all.json` | **404** | 用 `javaVersion.component` 拼的几种路径全部 404 |
 | 同上 `.../manifest.json`、`/mc/game/java-runtime-epsilon.json` | **404** | 同上 |
 
-**结论**：Mojang 的 Java 运行时元数据当前无法通过任何已知公开路径发现，所以 MoucLauncher 用
+**结论**：Mojang 的 Java 运行时元数据当前无法通过任何已知公开路径发现，所以 MoucX 用
 Adoptium 供给 Java，`javaVersion.component` 只用于展示，不用于下载。
 
 ### 26.3 版本 JSON 实测字段
@@ -42,7 +42,7 @@ logging.client.argument: -Dlog4j.configurationFile=${path}
 | `.../fabric-meta/v2/versions/loader/1.20.4` | 请求失败（未拿到响应） |
 | `https://openbmclapi.bangbang93.com/mirrors/` | **404** |
 
-**结论**：BMCLAPI 的公网 API 现在没有一个可用路由，所以 MoucLauncher **不内置任何公共镜像**。
+**结论**：BMCLAPI 的公网 API 现在没有一个可用路由，所以 MoucX **不内置任何公共镜像**。
 下载源被实现成数据驱动的 `MirrorRule`（官方 host → 镜像 host 的改写表），用户在
 `设置 → 下载源` 里填自己的镜像即可，代码不需要改。`src/main/download/mirror.ts` 的改写规则
 针对 BMCLAPI 风格的路径布局（`libraries` 走 `/maven` 前缀，其余同路径）。

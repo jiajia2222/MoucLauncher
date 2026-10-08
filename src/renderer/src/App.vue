@@ -1,6 +1,6 @@
 <script setup lang="ts">
 /**
- * MoucLauncher shell.
+ * MoucX shell.
  *
  * The visual layer is the ported KAMUCL shell (see /THIRD_PARTY_NOTICES.md): `Topbar`
  * carries the drag region, download centre, notices and window chrome; `Sidebar` carries

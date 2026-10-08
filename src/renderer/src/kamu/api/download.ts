@@ -1,7 +1,7 @@
 /**
  * Download / background-task adapters for the ported KAMUCL views.
  *
- * Upstream pushed one `ProgressEvent` per stage through `IPC_EVENT.progress`; MoucLauncher
+ * Upstream pushed one `ProgressEvent` per stage through `IPC_EVENT.progress`; MoucX
  * pushes a `DownloadProgress` per job plus a terminal `DownloadJob` on `job-finished`, so
  * the home view keeps a map of live jobs instead of a single progress slot.
  *

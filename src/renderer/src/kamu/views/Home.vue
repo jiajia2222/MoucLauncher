@@ -3,7 +3,7 @@
  * HomeView — ported from KAMUCL `src/renderer/src/views/HomeView.vue`.
  *
  * Layout, class names and scoped CSS come from upstream so the design system matches
- * KAMUCL exactly. The data layer is rewired to MoucLauncher's `window.mouc` contract
+ * KAMUCL exactly. The data layer is rewired to MoucX's `window.mouc` contract
  * (see ../api/*). Dropped because there is no backing capability: launch-banner images
  * (the hero renders upstream's own `no-banner` state), the 3D skin viewer (no WebGL
  * dependency in this project — the real 2D skin texture from `account.skin` is shown

@@ -2,7 +2,7 @@
  * LAN discovery + cross-network relay room adapter for the ported servers page.
  *
  * Upstream drives these panels from P2P hole punching (VoxLink), FRP tunnels and the
- * Terracotta engine. MoucLauncher has one mechanism instead: a relay server that
+ * Terracotta engine. MoucX has one mechanism instead: a relay server that
  * forwards a local game port for a room (`window.mouc.server.relay*`), plus vanilla
  * LAN broadcast discovery (`server.lanScan` + the `mouc:lan-game` push channel).
  * Both are push/state streams, so the subscriptions return their unsubscribe handle.

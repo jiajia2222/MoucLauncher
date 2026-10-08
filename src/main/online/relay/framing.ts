@@ -13,7 +13,7 @@
  * See docs/relay-protocol.md for the full protocol.
  */
 
-export const PROTOCOL_NAME = 'mouc-relay'
+export const PROTOCOL_NAME = 'moucx-relay'
 export const PROTOCOL_VERSION = 1
 
 /** First byte of a data frame; JSON control frames can never start with it. */

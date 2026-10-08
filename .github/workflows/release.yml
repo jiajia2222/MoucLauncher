@@ -53,9 +53,9 @@ jobs:
             echo ""
             echo "| 文件 | 用途 |"
             echo "| --- | --- |"
-            echo "| \`MoucLauncher-${TAG#v}-Setup-x64.exe\` | 安装包：桌面快捷方式 + 开始菜单 |"
-            echo "| \`MoucLauncher-${TAG#v}-portable-x64.exe\` | 免安装单文件，双击即用 |"
-            echo "| \`MoucLauncher-${TAG#v}-windows-x64.zip\` | 快捷包：解压到任意目录，适合放 U 盘 / 多版本并存 |"
+            echo "| \`MoucX-${TAG#v}-Setup-x64.exe\` | 安装包：桌面快捷方式 + 开始菜单 |"
+            echo "| \`MoucX-${TAG#v}-portable-x64.exe\` | 免安装单文件，双击即用 |"
+            echo "| \`MoucX-${TAG#v}-windows-x64.zip\` | 快捷包：解压到任意目录，适合放 U 盘 / 多版本并存 |"
             echo ""
             echo "校验：\`Get-FileHash .\*.exe -Algorithm SHA256\` 对照 \`SHA256SUMS.txt\`。"
             echo ""
@@ -79,12 +79,12 @@ jobs:
           VERSION="$(node -p "require('./package.json').version")"
           gh release create "$TAG" \
             --draft \
-            --title "MoucLauncher ${VERSION}" \
+            --title "MoucX ${VERSION}" \
             --notes-file release-notes.md
           gh release upload "$TAG" \
-            "release/MoucLauncher-${VERSION}-Setup-x64.exe" \
-            "release/MoucLauncher-${VERSION}-portable-x64.exe" \
-            "release/MoucLauncher-${VERSION}-windows-x64.zip" \
+            "release/MoucX-${VERSION}-Setup-x64.exe" \
+            "release/MoucX-${VERSION}-portable-x64.exe" \
+            "release/MoucX-${VERSION}-windows-x64.zip" \
             release/SHA256SUMS.txt \
             --clobber
           gh release edit "$TAG" --draft=false

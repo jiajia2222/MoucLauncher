@@ -1,5 +1,5 @@
 /* Ported from KAMUCL src/renderer/src/ui-system.css (MIT, (c) 2026 kamubaba-i).
-   See /THIRD_PARTY_NOTICES.md. Data-layer calls are rewired to MoucLauncher's window.mouc. */
+   See /THIRD_PARTY_NOTICES.md. Data-layer calls are rewired to MoucX's window.mouc. */
 /* Shared desktop UI contract. Theme colors still come from App/visualDesign. */
 :root {
   --surface-solid: var(--card-solid, var(--bg));

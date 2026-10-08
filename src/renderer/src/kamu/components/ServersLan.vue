@@ -3,7 +3,7 @@
  * LAN world panel for the ported servers page.
  *
  * Upstream has no equivalent card: KAMUCL folds LAN worlds into the same server list and
- * only tunnels them onward. MoucLauncher broadcasts them separately (`server.lanScan` +
+ * only tunnels them onward. MoucX broadcasts them separately (`server.lanScan` +
  * the `mouc:lan-game` push), so they get their own panel built from the same upstream
  * vocabulary as the tunnel panels in `FriendConnectView` — `connection-panel`,
  * `connection-result`, `connection-empty` and `connection-actions`.

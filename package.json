@@ -1,7 +1,7 @@
 {
-  "name": "mouc-launcher",
-  "version": "1.0.1",
-  "description": "MoucLauncher - 自研 Minecraft 启动器 (Windows)",
+  "name": "moucx",
+  "version": "1.1.0",
+  "description": "MoucX - 自研 Minecraft 启动器 (Windows)",
   "main": "out/main/index.js",
   "author": "jiajia2222",
   "license": "MIT",

@@ -1,6 +1,6 @@
-# mouc-relay-server
+# moucx-relay-server
 
-MoucLauncher 的跨网联机中继。独立进程，不依赖启动器的任何代码，也不属于启动器的打包产物。
+MoucX 的跨网联机中继。独立进程，不依赖启动器的任何代码，也不属于启动器的打包产物。
 
 它只搬运 TCP 字节：房主把本地 Minecraft 端口挂到房间，加入者的启动器在 `127.0.0.1` 开一个
 本地端口，两边之间的字节都走这一条 WebSocket。**它不解析 Minecraft 协议、不落盘、不执行命令。**
@@ -16,8 +16,8 @@ npm start            # 默认监听 :8758
 或者用 Docker：
 
 ```bash
-docker build -t mouc-relay .
-docker run -d --name mouc-relay -p 8758:8758 -e MAX_PEERS=8 mouc-relay
+docker build -t moucx-relay .
+docker run -d --name moucx-relay -p 8758:8758 -e MAX_PEERS=8 moucx-relay
 ```
 
 ## 环境变量
@@ -41,7 +41,7 @@ ws://你的服务器IP:8758/ws
 ## 健康检查
 
 ```
-GET /healthz -> mouc-relay ok rooms=0
+GET /healthz -> moucx-relay ok rooms=0
 ```
 
 ## 协议

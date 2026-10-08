@@ -6,7 +6,7 @@
  * carries the no-script fallback for `black-orange`. That is ported here verbatim so the
  * shell renders exactly the upstream glass, and the switcher can offer all six.
  *
- * `Settings.theme` in MoucLauncher is only `'dark' | 'light'`, so the exact palette key
+ * `Settings.theme` in MoucX is only `'dark' | 'light'`, so the exact palette key
  * lives in localStorage and the tone is what gets persisted through
  * `mouc.settings.set({ theme })`, as the shell contract requires.
  */

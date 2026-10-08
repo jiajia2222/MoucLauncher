@@ -1,4 +1,6 @@
-# MoucLauncher
+# MoucX
+
+<img src="resources/icon.png" width="96" height="96" alt="MoucX" />
 
 一个 Windows 上的 Minecraft（Java 版）启动器。Electron 44 + Vue 3 + TypeScript，
 发布形态有三种：**安装包**、**免安装单文件**、**快捷包 zip**。
@@ -11,34 +13,35 @@
 > **界面层以 [KAMUCL](https://github.com/kamubaba-i/KAMUCL) 的源码为基础移植**（MIT，已署名）。
 > 上游完整渲染层源码随仓库分发在 `vendor/KAMUCL/`，许可证文本在 `licenses/`，
 > 移植范围与边界写在 [`THIRD_PARTY_NOTICES.md`](THIRD_PARTY_NOTICES.md)。
-> 品牌是本项目的：名称、代码绘制的图标（`scripts/gen-icons.mjs`）、安装包与快捷包。
+> 品牌是本项目的：名称、图标（母图 `brand/moucx-logo.png`，各尺寸由
+> `scripts/gen-icons.mjs` 以矢量重绘）、安装包与快捷包。
 
 CI 与发布产物：
 
-![CI](https://github.com/jiajia2222/MoucLauncher/actions/workflows/ci.yml/badge.svg)
-![Release](https://img.shields.io/github/v/release/jiajia2222/MoucLauncher)
+![CI](https://github.com/jiajia2222/MoucX/actions/workflows/ci.yml/badge.svg)
+![Release](https://img.shields.io/github/v/release/jiajia2222/MoucX)
 ![License](https://img.shields.io/badge/license-MIT-green)
 
 ---
 
 ## 下载
 
-到 [Releases](https://github.com/jiajia2222/MoucLauncher/releases) 页面，三选一：
+到 [Releases](https://github.com/jiajia2222/MoucX/releases) 页面，三选一：
 
 | 文件 | 形态 | 适合谁 |
 | --- | --- | --- |
-| `MoucLauncher-<版本>-Setup-x64.exe` | NSIS 安装包 | 想要桌面/开始菜单快捷方式、正常卸载流程 |
-| `MoucLauncher-<版本>-portable-x64.exe` | 免安装单文件 | 只想双击就用，不想装东西 |
-| `MoucLauncher-<版本>-windows-x64.zip` | 快捷包（解压即用） | U 盘、多版本并存、绿色软件习惯 |
+| `MoucX-<版本>-Setup-x64.exe` | NSIS 安装包 | 想要桌面/开始菜单快捷方式、正常卸载流程 |
+| `MoucX-<版本>-portable-x64.exe` | 免安装单文件 | 只想双击就用，不想装东西 |
+| `MoucX-<版本>-windows-x64.zip` | 快捷包（解压即用） | U 盘、多版本并存、绿色软件习惯 |
 
 三种产物里跑的是同一个程序，游戏数据默认都写在
-`文档/MoucLauncher/`（可在设置里改），配置和令牌写在
-`%APPDATA%/mouc-launcher/`。
+`文档/MoucX/`（可在设置里改），配置和令牌写在
+`%APPDATA%/moucx/`。
 
 校验：每个 release 都带 `SHA256SUMS.txt`。
 
 ```powershell
-Get-FileHash .\MoucLauncher-*-Setup-x64.exe -Algorithm SHA256
+Get-FileHash .\MoucX-*-Setup-x64.exe -Algorithm SHA256
 Get-Content .\SHA256SUMS.txt
 ```
 
@@ -59,7 +62,7 @@ Get-Content .\SHA256SUMS.txt
 已随 `vendor/KAMUCL/` + `licenses/` 分发，署名见 `THIRD_PARTY_NOTICES.md`；它上游那部分以
 LGPL-3.0 发布的 VoxLink 协议代码与第三方 skinview3d 只作为源码存档存在，`src/` 里没有引用）。
 **PCL 的界面不能搬**——它的自定义许可不是"补个许可证文本"就能合规的，硬性要求派生名称以
-"Plain Craft Launcher" 开头，那就不能叫 MoucLauncher。**HMCL** 是 GPL-3.0 加 §7 改名条款，同理不搬。
+"Plain Craft Launcher" 开头，那就不能叫 MoucX。**HMCL** 是 GPL-3.0 加 §7 改名条款，同理不搬。
 
 从这三家能拿的是**知识**：版本清单长什么样、加载器元数据接口在哪、Modrinth 怎么搜、
 NBT 与服务端状态协议怎么读——这些是公开事实，本项目的每一个端点都实测过并记在

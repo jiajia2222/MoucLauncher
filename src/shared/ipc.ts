@@ -337,6 +337,6 @@ declare global {
   interface Window {
     mouc: MoucApi
     /** True only in the browser preview (`npm run dev:web`). */
-    __MOUC_WEB__?: boolean
+    __MOUCX_WEB__?: boolean
   }
 }

@@ -240,7 +240,7 @@ describe('relay client', () => {
     expect(updates.map((status) => status.state)).toContain('hosting')
 
     const socket = relay.latest
-    expect(socket.controls('hello')).toEqual([{ t: 'hello', client: 'mouc-relay', protocol: 1 }])
+    expect(socket.controls('hello')).toEqual([{ t: 'hello', client: 'moucx-relay', protocol: 1 }])
     expect(socket.controls('host')).toEqual([{ t: 'host', room: 'ROOM1', password: 'pw', targetPort: game.port, listen: true }])
 
     socket.push({ kind: 'control', control: { t: 'peer-open', peer: 'p1', name: 'friend' } })

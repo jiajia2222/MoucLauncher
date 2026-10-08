@@ -103,7 +103,7 @@ const text = defineDict({
   reload: ['重新读取', 'Reload']
 })
 
-const REPO_URL = 'https://github.com/jiajia2222/MoucLauncher'
+const REPO_URL = 'https://github.com/jiajia2222/MoucX'
 const MS_DOCS_URL = 'https://learn.microsoft.com/entra/identity-platform/quickstart-register-app'
 const CURSE_DOCS_URL = 'https://console.curseforge.com/'
 const JAVA_MAJORS = ['8', '17', '21', '25']
@@ -939,7 +939,7 @@ onBeforeUnmount(() => {
       <!-- ============================================================ about -->
       <MCard id="about" :title="text.text('about')" icon="info">
         <div class="about-row">
-          <span class="about-name">MoucLauncher</span>
+          <span class="about-name">MoucX</span>
           <MTag size="sm" tone="accent" class="u-mono">v{{ appVersion || '--' }}</MTag>
           <MTag v-if="update?.available" size="sm" tone="success" dot>
             {{ text.text('updateAvailable', { version: update.latest }) }}

@@ -15,7 +15,7 @@ let quitting = false
 const bootstrapLog = new Logger('bootstrap', path.join(app.getPath('userData'), 'logs'))
 
 /** `node scripts/smoke.mjs` sets this; the app must then self-check and exit. */
-const SMOKE = process.argv.includes('--smoke-test') || process.env.MOUC_SMOKE === '1'
+const SMOKE = process.argv.includes('--smoke-test') || process.env.MoucX_SMOKE === '1'
 
 function smokePass(detail: unknown): void {
   console.log(`SMOKE_OK ${JSON.stringify(detail)}`)
@@ -93,7 +93,7 @@ function createWindow(): BrowserWindow {
     show: false,
     frame: false,
     backgroundColor: '#0f1013',
-    title: 'MoucLauncher',
+    title: 'MoucX',
     autoHideMenuBar: true,
     ...(icon ? { icon } : {}),
     webPreferences: {
@@ -102,7 +102,7 @@ function createWindow(): BrowserWindow {
       nodeIntegration: false,
       sandbox: true,
       spellcheck: false,
-      devTools: !app.isPackaged || process.env.MOUC_DEVTOOLS === '1'
+      devTools: !app.isPackaged || process.env.MoucX_DEVTOOLS === '1'
     }
   })
 
@@ -216,11 +216,11 @@ function askWhatToDo(win: BrowserWindow): void {
   const warnings: string[] = []
   if (runningGameCount() > 0) warnings.push(`仍有 ${runningGameCount()} 个游戏在运行，退出启动器不会关闭游戏窗口。`)
   if (activeDownloads() > 0) warnings.push(`还有 ${activeDownloads()} 个下载任务未完成，未完成的文件会保留以便续传。`)
-  const choices = ['最小化到后台', '退出 MoucLauncher', '取消']
+  const choices = ['最小化到后台', '退出 MoucX', '取消']
   dialog
     .showMessageBox(win, {
       type: 'warning',
-      title: '关闭 MoucLauncher',
+      title: '关闭 MoucX',
       message: warnings.length > 0 ? warnings.join('\n') : '确定退出吗？',
       detail: warnings.length > 0 ? '后台模式会保留正在进行的任务。' : undefined,
       buttons: warnings.length > 0 ? [choices[0], choices[1], choices[2]] : [choices[1], choices[2]],
@@ -248,7 +248,7 @@ function ensureTray(): void {
   const icon = iconPath()
   if (!icon) return
   tray = new Tray(nativeImage.createFromPath(icon))
-  tray.setToolTip('MoucLauncher')
+  tray.setToolTip('MoucX')
   tray.setContextMenu(
     Menu.buildFromTemplate([
       {
@@ -358,10 +358,10 @@ function focusWindow(): void {
 }
 
 async function onReady(): Promise<void> {
-  app.setAppUserModelId('com.mouc.launcher')
+  app.setAppUserModelId('com.moucx.app')
   Menu.setApplicationMenu(null)
   container = createContainer()
-  bootstrapLog.info(`启动 MoucLauncher ${app.getVersion()} / Electron ${process.versions.electron}`)
+  bootstrapLog.info(`启动 MoucX ${app.getVersion()} / Electron ${process.versions.electron}`)
   bootstrapLog.info(`游戏目录 ${container.paths().gameRoot}`)
 
   registerIpc(container, () => mainWindow)
@@ -391,7 +391,7 @@ if (!app.requestSingleInstanceLock()) {
 } else {
   void app.whenReady().then(onReady).catch((error: unknown) => {
     bootstrapLog.error('启动失败', error)
-    dialog.showErrorBox('MoucLauncher 启动失败', String(error))
+    dialog.showErrorBox('MoucX 启动失败', String(error))
   })
 
   app.on('window-all-closed', () => {

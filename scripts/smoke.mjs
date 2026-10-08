@@ -19,7 +19,7 @@ const child = spawn(
   ['.', '--smoke-test', '--no-sandbox', '--disable-gpu', '--disable-dev-shm-usage', '--disable-software-rasterizer'],
   {
     cwd: ROOT,
-    env: { ...process.env, ELECTRON_ENABLE_LOGGING: '1', MOUC_SMOKE: '1' },
+    env: { ...process.env, ELECTRON_ENABLE_LOGGING: '1', MoucX_SMOKE: '1' },
     stdio: ['ignore', 'pipe', 'pipe']
   }
 )

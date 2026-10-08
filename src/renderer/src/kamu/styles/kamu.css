@@ -1,5 +1,5 @@
 /* Ported from KAMUCL src/renderer/src/kamu.css (MIT, (c) 2026 kamubaba-i).
-   See /THIRD_PARTY_NOTICES.md. Data-layer calls are rewired to MoucLauncher's window.mouc. */
+   See /THIRD_PARTY_NOTICES.md. Data-layer calls are rewired to MoucX's window.mouc. */
 /* ============================================================
    KAMUCL 全局样式 —— 六套主题共用的组件基线（色板由 App.vue 注入）
    ============================================================ */

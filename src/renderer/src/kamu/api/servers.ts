@@ -2,7 +2,7 @@
  * Server-list adapter for the ported KAMUCL servers page.
  *
  * Upstream calls a flat `api.ts` whose functions return plain values and reject on
- * failure (`listServers()`, `pingServer(address)`, …). MoucLauncher stores servers per
+ * failure (`listServers()`, `pingServer(address)`, …). MoucX stores servers per
  * instance behind `window.mouc.server.*`, where every method resolves a `Result<T>`.
  * These wrappers keep the upstream call shapes so the ported view stays recognisable:
  * they unwrap the envelope through `call()` and sanitise arguments with `plain()`

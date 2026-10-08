@@ -57,7 +57,7 @@ export const ENDPOINTS = {
 
   githubApi: 'https://api.github.com',
   /** Self-update source. */
-  updateRepo: 'jiajia2222/MoucLauncher'
+  updateRepo: 'jiajia2222/MoucX'
 } as const
 
 /**

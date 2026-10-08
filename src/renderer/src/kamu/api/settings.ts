@@ -2,7 +2,7 @@
  * Settings domain for the ported KAMUCL renderer layer.
  *
  * Upstream (`src/renderer/src/api.ts`) had one flat function per IPC channel that
- * returned the unwrapped value and rejected on failure. MoucLauncher's main process only
+ * returned the unwrapped value and rejected on failure. MoucX's main process only
  * speaks `Result<T>`, so every function here funnels through `api/core.ts` and keeps the
  * upstream call shape. Nothing else in the ported renderer talks to `window.mouc`.
  *

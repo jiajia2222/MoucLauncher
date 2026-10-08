@@ -212,7 +212,7 @@ export function createMockApi(options: MockOptions = {}): MoucApi {
       runtimes.push({
         id: `java-${major}-mojang`,
         path: `${settings.gameRoot}\\java\\${major}\\bin\\java.exe`,
-        rawVersion: `openjdk version "${major}" (downloaded by MoucLauncher)`,
+        rawVersion: `openjdk version "${major}" (downloaded by MoucX)`,
         major,
         vendor: 'Mojang Studios',
         arch: 'x64',
@@ -319,9 +319,9 @@ export function createMockApi(options: MockOptions = {}): MoucApi {
           available: true,
           current: seed.LAUNCHER_VERSION,
           latest: '1.1.0',
-          url: 'https://github.com/jiajia2222/MoucLauncher/releases/tag/v1.1.0',
+          url: 'https://github.com/jiajia2222/MoucX/releases/tag/v1.1.0',
           notes: '修复 Forge 1.12.2 的 natives 解压；新增跨网联机。',
-          assets: ['MoucLauncher-Setup-1.1.0.exe', 'latest.yml']
+          assets: ['MoucX-Setup-1.1.0.exe', 'latest.yml']
         })
       },
       async relaunch() {
@@ -517,7 +517,7 @@ export function createMockApi(options: MockOptions = {}): MoucApi {
         const made: JavaRuntime = {
           id: `java-${request.major}-${Date.now().toString(36)}`,
           path: `${settings.gameRoot}\\java\\${request.major}\\bin\\java.exe`,
-          rawVersion: `openjdk version "${request.major}" (downloaded by MoucLauncher)`,
+          rawVersion: `openjdk version "${request.major}" (downloaded by MoucX)`,
           major: request.major,
           vendor: 'Eclipse Temurin',
           arch: 'x64',

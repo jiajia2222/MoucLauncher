@@ -194,7 +194,7 @@ export async function buildMrpack(
     game: 'minecraft',
     versionId: '1',
     name: instance.name,
-    author: 'MoucLauncher',
+    author: 'MoucX',
     dependencies: {
       minecraft: instance.gameVersion,
       ...(MRPACK_DEP_KEY[instance.loader] && instance.loaderVersion

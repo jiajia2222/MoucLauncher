@@ -1,6 +1,6 @@
 <script setup lang="ts">
 /**
- * InstancesModpackModal — 导入 / 导出整合包, the MoucLauncher shape of upstream's
+ * InstancesModpackModal — 导入 / 导出整合包, the MoucX shape of upstream's
  * InstanceCenter backup & restore sheet.
  *
  * Upstream backs those tabs with its own manifest store; this bridge exposes

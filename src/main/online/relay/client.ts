@@ -673,7 +673,7 @@ export function createRelayClient(deps: RelayClientDeps): RelayClient {
     myPeerId = ''
     if (!ws) return
     try {
-      ws.close(1000, 'mouc-relay stop')
+      ws.close(1000, 'moucx-relay stop')
     } catch {
       /* ignore */
     }

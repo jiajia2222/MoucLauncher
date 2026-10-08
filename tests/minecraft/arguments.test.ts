@@ -132,7 +132,7 @@ describe('placeholder substitution', () => {
     expect(table.user_type).toBe('legacy')
     expect(table.user_properties).toBe('{}')
     expect(table.version_type).toBe('release')
-    expect(table.launcher_name).toBe('MoucLauncher')
+    expect(table.launcher_name).toBe('MoucX')
     expect(table.assets_index_name).toBe('36')
     expect(table.game_assets).toBe(path.join(env.paths.assetsDir, 'objects'))
     expect(substitute('${auth_player_name}|${unknown_key}', table)).toBe('Steve|${unknown_key}')
@@ -208,7 +208,7 @@ describe('rule filtering with activeArgs', () => {
   it('launcher brand/version system properties are substituted', () => {
     env = createTestEnv()
     const built = buildArguments(ctxBase({ launcherVersion: '1.0.0' }))
-    expect(built.jvmArgs).toContain('-Dminecraft.launcher.brand=MoucLauncher')
+    expect(built.jvmArgs).toContain('-Dminecraft.launcher.brand=MoucX')
     expect(built.jvmArgs).toContain('-Dminecraft.launcher.version=1.0.0')
     expect(built.jvmArgs).toContain(`-Djava.library.path=${nativesDir(env.paths, '26.3')}`)
   })

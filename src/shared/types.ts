@@ -1,5 +1,5 @@
 /**
- * MoucLauncher domain types.
+ * MoucX domain types.
  * This file is the contract between the main-process services, the preload bridge
  * and the renderer. Nothing here may import from `electron` or from `src/main`.
  */

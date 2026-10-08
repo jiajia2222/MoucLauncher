@@ -7,7 +7,7 @@ import { resolve } from 'node:path'
 
 export default defineConfig({
   root: 'src/renderer',
-  define: { __MOUC_WEB__: 'true' },
+  define: { __MOUCX_WEB__: 'true' },
   plugins: [vue()],
   resolve: {
     alias: {

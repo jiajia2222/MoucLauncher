@@ -2,7 +2,7 @@
  * Shell store — the slice of upstream `store.ts` the chrome needs.
  *
  * Upstream keeps download tasks, notices, launch state and health in one module-level
- * reactive object fed by IPC events. MoucLauncher's backend already owns that state
+ * reactive object fed by IPC events. MoucX's backend already owns that state
  * (`mouc.download.jobs()` + `mouc:progress` / `mouc:job-finished` / `mouc:game-exit`),
  * so this is a thin projection of it: a `tasks` view-model over jobs and the latest
  * progress payload, a local notice list (there is no notice API in `MoucApi`), and the

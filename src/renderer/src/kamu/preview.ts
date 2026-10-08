@@ -15,7 +15,7 @@ import Settings from './views/Settings.vue'
 
 if (!window.mouc) {
   window.mouc = createMockApi({ empty: false })
-  window.__MOUC_WEB__ = true
+  window.__MOUCX_WEB__ = true
 }
 
 const Harness = defineComponent({

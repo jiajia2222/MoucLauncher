@@ -2,7 +2,7 @@
  * Shared plumbing for the ported KAMUCL renderer layer.
  *
  * The upstream code calls a flat, typed `api.ts` whose functions return plain values
- * and reject on failure. MoucLauncher's main process exposes a namespaced `window.mouc`
+ * and reject on failure. MoucX's main process exposes a namespaced `window.mouc`
  * whose every method resolves to `Result<T>`. This module is the translation layer, so
  * ported views keep upstream call shapes instead of being rewritten.
  *

@@ -13,7 +13,7 @@ import Versions from './views/Versions.vue'
 
 if (!window.mouc) {
   window.mouc = createMockApi({ empty: new URLSearchParams(location.search).has('empty') })
-  window.__MOUC_WEB__ = true
+  window.__MOUCX_WEB__ = true
 }
 
 const hash = /^#view=(\w[\w-]*)/i.exec(window.location.hash)?.[1] ?? 'instances'

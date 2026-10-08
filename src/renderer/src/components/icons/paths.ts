@@ -1,5 +1,5 @@
 /**
- * MoucLauncher icon geometry.
+ * MoucX icon geometry.
  *
  * Hand-drawn on a 20x20 grid: stroke width 1.5, round caps/joins, `fill: none`.
  * Every entry is a single `d` string (subpaths separated by M commands) so the

@@ -22,7 +22,7 @@ async function boot(): Promise<void> {
   if (!window.mouc) {
     // Browser preview (`npm run dev:web`). `?empty` swaps in the zero-state dataset.
     window.mouc = createMockApi({ empty: new URLSearchParams(location.search).has('empty') })
-    window.__MOUC_WEB__ = true
+    window.__MOUCX_WEB__ = true
   }
 
   applyTheme(themeMode.value)

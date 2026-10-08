@@ -208,7 +208,7 @@ export function createModrinthProvider(http: HttpClient, base = ENDPOINTS.modrin
       params.set('index', INDEX_FOR_SORT[query.sort ?? 'relevance'])
       params.set('filters', buildFilters(query))
       const res = await http.json<ModrinthSearchResponse>(`${searchUrl}?${params.toString()}`, {
-        headers: { 'user-agent': 'MoucLauncher' }
+        headers: { 'user-agent': 'MoucX' }
       })
       const hits = res.hits ?? []
       return { items: hits.map(mapProject), total: res.total_hits ?? hits.length, offset: res.offset ?? query.offset }
@@ -220,7 +220,7 @@ export function createModrinthProvider(http: HttpClient, base = ENDPOINTS.modrin
       if (loader) params.set('loaders', JSON.stringify([loader]))
       const qs = params.toString()
       const url = `${root}/project/${encodeURIComponent(projectId)}/version${qs ? `?${qs}` : ''}`
-      const res = await http.json<ModrinthVersion[]>(url, { headers: { 'user-agent': 'MoucLauncher' } })
+      const res = await http.json<ModrinthVersion[]>(url, { headers: { 'user-agent': 'MoucX' } })
       if (!Array.isArray(res)) throw new AppError('not-found', 'Modrinth 项目不存在', projectId)
       return res.map(mapVersion)
     },

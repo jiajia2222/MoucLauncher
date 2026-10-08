@@ -3,7 +3,7 @@
  * ModsJobs — the live install panel of the 模组 page.
  *
  * Upstream (`CommunityView.vue` + `ModInstallDialog.vue`) folded the download into a global
- * store slot; MoucLauncher pushes `DownloadProgress` on `mouc:progress` and the terminal
+ * store slot; MoucX pushes `DownloadProgress` on `mouc:progress` and the terminal
  * `DownloadJob` on `mouc:job-finished`, so this panel owns its own subscription: seed from
  * `mouc.download.jobs()`, follow the pushes, cancel or retry — the same markup and metrics
  * the versions / instance pages use, so a download looks identical everywhere.

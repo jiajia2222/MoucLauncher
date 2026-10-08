@@ -3,7 +3,7 @@
  * InstanceCenterPanel — port of KAMUCL's `InstanceCenter.vue`.
  *
  * Keeps upstream's dialog chrome (`.ic-*`), tab strip, row density and confirmation sheet,
- * with the tabs the MoucLauncher bridge can actually serve:
+ * with the tabs the MoucX bridge can actually serve:
  *   概览  -> instance record + integrity summary + duplicate
  *   备份  -> export/import modpack (upstream's backup manifests have no backend here)
  *   诊断  -> instance.state flags, java.resolve, version.repair

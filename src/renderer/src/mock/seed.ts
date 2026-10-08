@@ -35,15 +35,15 @@ const now = Date.now()
 /* ------------------------------------------------------------------ paths */
 
 export const PATHS: PathInfo = {
-  appData: 'C:\\Users\\jiamou\\AppData\\Roaming\\MoucLauncher',
+  appData: 'C:\\Users\\jiamou\\AppData\\Roaming\\MoucX',
   gameRoot: 'D:\\Games\\Minecraft',
   versionsDir: 'D:\\Games\\Minecraft\\versions',
   librariesDir: 'D:\\Games\\Minecraft\\libraries',
   assetsDir: 'D:\\Games\\Minecraft\\assets',
   instancesDir: 'D:\\Games\\Minecraft\\instances',
   logsDir: 'D:\\Games\\Minecraft\\logs',
-  javaStoreDir: 'C:\\Users\\jiamou\\AppData\\Roaming\\MoucLauncher\\java',
-  configDir: 'C:\\Users\\jiamou\\AppData\\Roaming\\MoucLauncher\\config'
+  javaStoreDir: 'C:\\Users\\jiamou\\AppData\\Roaming\\MoucX\\java',
+  configDir: 'C:\\Users\\jiamou\\AppData\\Roaming\\MoucX\\config'
 }
 
 /* --------------------------------------------------------------- settings */
@@ -92,7 +92,7 @@ export const SETTINGS: Settings = {
   proxyUrl: '',
   microsoftClientId: 'e8f9d8b4-0000-4a1d-9b6e-mouc00000000',
   autoCheckUpdate: true,
-  lastSeenVersion: '1.0.0'
+  lastSeenVersion: '1.1.0'
 }
 
 /* ---------------------------------------------------------------- versions */
@@ -414,13 +414,13 @@ export const JAVA_RUNTIMES: JavaRuntime[] = [
   },
   {
     id: 'java-25-mojang',
-    path: 'C:\\Users\\jiamou\\AppData\\Roaming\\MoucLauncher\\java\\25\\bin\\java.exe',
+    path: 'C:\\Users\\jiamou\\AppData\\Roaming\\MoucX\\java\\25\\bin\\java.exe',
     rawVersion: 'openjdk version "25" 2025-09-16 LTS (Mojang runtime-gamma)',
     major: 25,
     vendor: 'Mojang Studios',
     arch: 'x64',
     source: 'mojang',
-    executable: 'C:\\Users\\jiamou\\AppData\\Roaming\\MoucLauncher\\java\\25\\bin\\javaw.exe',
+    executable: 'C:\\Users\\jiamou\\AppData\\Roaming\\MoucX\\java\\25\\bin\\javaw.exe',
     canHeadless: true
   },
   {
@@ -821,4 +821,4 @@ export const DIR_STATS: GameDirStats = {
   screenshots: 63
 }
 
-export const LAUNCHER_VERSION = '1.0.0'
+export const LAUNCHER_VERSION = '1.1.0'

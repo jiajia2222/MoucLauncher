@@ -7,7 +7,7 @@
  * in the shell itself, so they are kept here with the same class names and the same
  * `-webkit-app-region` split (bar drags, controls do not).
  *
- * Wired to MoucLauncher: `mouc.win.minimize()/toggleMaximize()/close()` plus the
+ * Wired to MoucX: `mouc.win.minimize()/toggleMaximize()/close()` plus the
  * `mouc:window-state` push, and the game-running close hint ported from upstream's `win()`.
  */
 import { computed, onBeforeUnmount, onMounted, ref } from 'vue'

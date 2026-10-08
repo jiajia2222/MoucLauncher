@@ -6,12 +6,12 @@
  *
  * Guarantees:
  *  - `Accept-Encoding: identity` everywhere so byte accounting stays exact.
- *  - `User-Agent: MoucLauncher/<version>`.
+ *  - `User-Agent: MoucX/<version>`.
  *  - Manual redirect following, max 5 hops, so Range headers survive redirects.
  *  - 4xx/5xx throw `httpStatusError(status, url)` (head() reports instead).
  *  - AbortSignal honoured during connect, tunnel, headers and body streaming.
  *
- * Test hook: setting `MOUC_TLS_INSECURE=1` disables TLS verification so the
+ * Test hook: setting `MOUCX_TLS_INSECURE=1` disables TLS verification so the
  * offline test-suite can use a self-signed fixture certificate. Never set it
  * in production.
  */
@@ -31,8 +31,8 @@ const MAX_REDIRECT_HOPS = 5
 /** Short OPEN-tunnel read window; a dead tunnel is still caught by the TLS handshake. */
 const LIVENESS_PROBE_MS = 250
 /** Keep in sync with package.json; the frozen factory signature cannot read appInfo. */
-const APP_VERSION = '1.0.0'
-const TLS_INSECURE_ENV = 'MOUC_TLS_INSECURE'
+const APP_VERSION = '1.1.0'
+const TLS_INSECURE_ENV = 'MOUCX_TLS_INSECURE'
 
 /* ------------------------------------------------------------------ */
 /* helpers                                                             */
@@ -187,7 +187,7 @@ export function createHttpClient(deps: HttpClientDeps): HttpClient {
 
   function baseHeaders(init: HttpInit | undefined, proxy: ProxyConfig | undefined): Record<string, string> {
     const headers: Record<string, string> = {
-      'User-Agent': `MoucLauncher/${version}`,
+      'User-Agent': `MoucX/${version}`,
       'Accept-Encoding': 'identity'
     }
     if (proxy?.basic) headers['Proxy-Authorization'] = `Basic ${proxy.basic}`

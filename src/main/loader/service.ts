@@ -61,7 +61,7 @@ export function createLoaderService(deps: LoaderServiceDeps): LoaderService {
   const { http, downloader, instances, settings, paths, log } = deps
 
   async function fetchJson<T>(url: string): Promise<T> {
-    return http.json<T>(url, { headers: { 'user-agent': 'MoucLauncher' } })
+    return http.json<T>(url, { headers: { 'user-agent': 'MoucX' } })
   }
 
   /* ------------------------------ options ------------------------------ */
@@ -88,7 +88,7 @@ export function createLoaderService(deps: LoaderServiceDeps): LoaderService {
     const metadataUrl = id === 'forge' ? ENDPOINTS.forgeMavenMetadata : ENDPOINTS.neoforgeMavenMetadata
     const label = id === 'forge' ? 'Forge' : 'NeoForge'
     try {
-      const xml = await http.text(metadataUrl, { headers: { 'user-agent': 'MoucLauncher' } })
+      const xml = await http.text(metadataUrl, { headers: { 'user-agent': 'MoucX' } })
       const all = parseMavenVersions(xml).filter((v) => v.startsWith(`${game}-`))
       const versions = sortVersionIds(all).map((version) => ({ version, stable: false, recommended: false }))
       // Forge publishes the "recommended/latest" pointers per game line in promotions_slim.json.

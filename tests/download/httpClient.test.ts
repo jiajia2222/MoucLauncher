@@ -1,5 +1,7 @@
 import { afterAll, afterEach, beforeAll, describe, expect, it } from 'vitest'
 import { Buffer } from 'node:buffer'
+import { readFileSync } from 'node:fs'
+import path from 'node:path'
 import type { Settings } from '@shared/types'
 import { AppError } from '@shared/errors'
 import { createHttpClient } from '../../src/main/download/httpClient'
@@ -36,11 +38,11 @@ function track<T extends OriginFixture | ProxyFixture>(fixture: T): T {
 
 beforeAll(() => {
   // self-signed fixture certificate
-  process.env.MOUC_TLS_INSECURE = '1'
+  process.env.MOUCX_TLS_INSECURE = '1'
 })
 
 afterAll(() => {
-  delete process.env.MOUC_TLS_INSECURE
+  delete process.env.MOUCX_TLS_INSECURE
 })
 
 afterEach(async () => {
@@ -65,7 +67,11 @@ describe('httpClient basics', () => {
     expect(await http.json<{ ok: boolean; n: number }>(`${origin.origin}/json`)).toEqual({ ok: true, n: 7 })
     expect([...(await http.buffer(`${origin.origin}/bin`))]).toEqual([1, 2, 3, 4])
     const seen = origin.log[0]!.headers
-    expect(seen['user-agent']).toBe('MoucLauncher/1.0.0')
+    // Read from package.json rather than a literal: the shipped User-Agent is built from a
+    // version constant that has to be kept in sync by hand, and silent drift there has
+    // already broken a release once.
+    const pkg = JSON.parse(readFileSync(path.resolve(__dirname, '../../package.json'), 'utf8'))
+    expect(seen['user-agent']).toBe(`MoucX/${pkg.version}`)
     expect(seen['accept-encoding']).toBe('identity')
   })
 
